@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+POST          /login                  primary.controllers.UserController.login()
+GET           /logout                 primary.controllers.UserController.logout()
+#API of user
+POST          /user                   primary.controllers.UserController.registerNewUser()
+PUT           /user                   primary.controllers.UserController.update()
+GET           /user/:id               primary.controllers.UserController.findUserById(id)
+DELETE        /user/:id               primary.controllers.UserController.deleteById(id)
+GET           /me                     primary.controllers.UserController.getUserByCookie
+
+#API of post
+GET           /post                   primary.controllers.PostController.pagination(limit: Int ?= 10, page: Int ?= 1)
+POST          /newpost                primary.controllers.PostController.addNewPost
+DELETE        /post/:id               primary.controllers.PostController.deleteById(id)
+PUT           /post                   primary.controllers.PostController.updatePost
+GET           /post/detail/:id        primary.controllers.PostController.findById(id : String)
+
+GET           /images/*file           controllers.Assets.versioned(path="/public/images", file: Asset)
+#Test
+#POST    /file                       primary.controllers.PostController.upload
+
+## Map static resources from the /public folder to the /assets URL path
+#GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
