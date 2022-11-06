@@ -58,7 +58,7 @@ class PostController @Inject()(postService: PostService,
             },
             valid => {
               postService.save(valid).map(value => {
-                Thread.sleep(500)
+//                Thread.sleep(500)
                 Ok(Json.obj("id" -> value.value))
               }).getOrElse(Response.badRequest("Can not create a new post!"))
 
